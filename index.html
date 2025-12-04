@@ -130,13 +130,13 @@
     }
 
     .hero-content {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 8rem;
       align-items: center;
     }
 
@@ -795,6 +795,13 @@
       display: block;
     }
 
+    .form-message.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 2px solid #fecaca;
+      display: block;
+    }
+
     /* Footer */
     .footer {
       background: var(--dark);
@@ -1047,7 +1054,7 @@
             <span class="tech-tag">SQL</span>
             <span class="tech-tag">Statistical Process Control</span>
           </div>
-          <a href="#" class="project-link">View Case Study →</a>
+          <a href="https://drive.google.com/file/d/1yPYZHikeZlDbZUVaLs7FNiJ51sW6g9qy/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a>
         </div>
       </div>
 
@@ -1067,7 +1074,7 @@
             <span class="tech-tag">SHAP</span>
             <span class="tech-tag">OpenAI API</span>
           </div>
-          <a href="#" class="project-link">View Case Study →</a>
+          <a href="https://github.com/Arsh23-tech/AI-Powered-Loan-Credit-Risk-Assessment-System" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a>
         </div>
       </div>
 
@@ -1087,7 +1094,7 @@
             <span class="tech-tag">Docker</span>
             <span class="tech-tag">Power Apps</span>
           </div>
-          <a href="#" class="project-link">View Case Study →</a>
+          <a href="https://github.com/Arsh23-tech/ModelMate" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a>
         </div>
       </div>
 
@@ -1107,7 +1114,7 @@
             <span class="tech-tag">Python</span>
             <span class="tech-tag">SQL</span>
           </div>
-          <a href="#" class="project-link">View Case Study →</a>
+          <a href="https://github.com/Arsh23-tech/Energy-Consumption-Analysis" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a>
         </div>
       </div>
     </div>
@@ -1367,7 +1374,7 @@
       </div>
 
       <div class="contact-form">
-        <form id="contactForm">
+        <form id="contactForm" action="https://formspree.io/f/mpwvlpyv" method="POST">
           <div class="form-group">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" required placeholder="John Doe">
@@ -1472,16 +1479,36 @@
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('name').value;
-      formMessage.textContent = `Thank you, ${name}! Your message has been received. I'll get back to you soon.`;
-      formMessage.className = 'form-message success';
-      contactForm.reset();
-
-      setTimeout(() => {
-        formMessage.style.display = 'none';
-      }, 5000);
+      
+      const formData = new FormData(contactForm);
+      
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          formMessage.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
+          formMessage.className = 'form-message success';
+          contactForm.reset();
+          
+          setTimeout(() => {
+            formMessage.style.display = 'none';
+          }, 5000);
+        } else {
+          formMessage.textContent = 'Oops! There was a problem sending your message. Please try again.';
+          formMessage.className = 'form-message error';
+        }
+      } catch (error) {
+        formMessage.textContent = 'Oops! There was a problem sending your message. Please try again.';
+        formMessage.className = 'form-message error';
+      }
     });
 
     // Animate skill bars on scroll

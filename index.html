@@ -16,7 +16,7 @@
       --primary: #0369a1;
       --primary-dark: #075985;
       --secondary: #0891b2;
-      --accent: #0ea5e9;
+      --accent: #0c4a6e;
       --success: #10b981;
       --dark: #0f172a;
       --gray: #64748b;
@@ -107,7 +107,7 @@
       display: flex;
       align-items: center;
       padding: 100px 5% 50px;
-      background: linear-gradient(135deg, #0c4a6e 0%, #0891b2 50%, #06b6d4 100%);
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #0c4a6e 100%);
       position: relative;
       overflow: hidden;
     }
@@ -149,7 +149,7 @@
     }
 
     .hero-text .highlight {
-      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      background: linear-gradient(135deg, #0c4a6e, #075985);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -181,7 +181,7 @@
     .stat-number {
       font-size: 36px;
       font-weight: 800;
-      color: #0ea5e9;
+      color: #ffffff;
       display: block;
     }
 
@@ -212,13 +212,14 @@
     }
 
     .btn-primary {
-      background: #0ea5e9;
+      background: #0c4a6e;
       color: white;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+      box-shadow: 0 8px 20px rgba(12, 74, 110, 0.4);
+      background: #075985;
     }
 
     .btn-secondary {
@@ -251,20 +252,6 @@
       object-fit: cover;
     }
 
-    .profile-badge {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #0ea5e9;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 14px;
-      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.5);
-    }
-
     .social-links {
       display: flex;
       gap: 1rem;
@@ -280,7 +267,7 @@
       justify-content: center;
       text-decoration: none;
       font-size: 20px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -291,6 +278,11 @@
       background: white;
       color: var(--primary);
       transform: translateY(-3px);
+    }
+
+    .social-links a svg {
+      width: 24px;
+      height: 24px;
     }
 
     /* About Section */
@@ -617,7 +609,7 @@
     .timeline-dot {
       width: 20px;
       height: 20px;
-      background: #0ea5e9;
+      background: #0c4a6e;
       border-radius: 50%;
       border: 4px solid white;
       box-shadow: 0 0 0 4px var(--primary);
@@ -630,7 +622,7 @@
     .timeline-date {
       display: inline-block;
       padding: 6px 12px;
-      background: #0ea5e9;
+      background: #0c4a6e;
       color: white;
       border-radius: 20px;
       font-size: 13px;
@@ -821,13 +813,13 @@
       right: 30px;
       width: 50px;
       height: 50px;
-      background: #0ea5e9;
+      background: #0c4a6e;
       color: white;
       border: none;
       border-radius: 50%;
       font-size: 20px;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+      box-shadow: 0 4px 15px rgba(12, 74, 110, 0.4);
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s;
@@ -859,33 +851,67 @@
         padding: 2rem 0;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         transition: left 0.3s;
+        gap: 0;
+      }
+
+      .nav-menu li {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
       }
 
       .nav-menu.active {
         left: 0;
       }
 
+      .hero {
+        padding: 80px 5% 40px;
+      }
+
       .hero-content {
         grid-template-columns: 1fr;
+        gap: 3rem;
         text-align: center;
       }
 
       .hero-text h1 {
-        font-size: 36px;
+        font-size: 28px;
+      }
+
+      .hero-text p {
+        font-size: 16px;
       }
 
       .stats-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .social-links {
+        justify-content: center;
       }
 
       .profile-image {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
         margin: 0 auto;
       }
 
       .section-title {
         font-size: 32px;
+      }
+
+      .section-subtitle {
+        font-size: 16px;
       }
 
       .about-content,
@@ -894,10 +920,16 @@
       .cert-grid,
       .contact-container {
         grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-card,
+      .project-card {
+        margin-bottom: 1rem;
       }
 
       .timeline::before {
-        left: 20px;
+        left: 30px;
       }
 
       .timeline-item:nth-child(odd),
@@ -906,13 +938,53 @@
       }
 
       .timeline-content {
-        width: calc(100% - 60px);
-        margin-left: 60px;
+        width: calc(100% - 80px);
+        margin-left: 80px;
       }
 
       .timeline-dot {
-        left: 20px;
+        left: 30px;
         transform: none;
+      }
+
+      /* Career progression mobile */
+      div[style*="max-width: 1100px"] > div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+
+      div[style*="max-width: 1100px"] > div[style*="display: flex"] > div[style*="font-size: 32px"] {
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+      }
+
+      /* PM Competencies mobile */
+      .certifications > div > div {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 24px;
+      }
+
+      .stat-item {
+        padding: 1rem;
+      }
+
+      .stat-number {
+        font-size: 28px;
+      }
+
+      .profile-image {
+        width: 240px;
+        height: 240px;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -973,7 +1045,6 @@
       <div class="profile-section">
         <div class="profile-image">
           <img src="https://i.ibb.co/VYdX4vJX/2C7A4404.jpg" alt="Arsh Chandrakar">
-          <div class="profile-badge">Open to Opportunities</div>
         </div>
       </div>
     </div>
@@ -1019,7 +1090,7 @@
           ⚙️ Lean Six Sigma
         </div>
         <div style="color: white; font-size: 32px; font-weight: bold;">→</div>
-        <div style="padding: 1.5rem 2rem; background: #0ea5e9; backdrop-filter: blur(10px); border-radius: 12px; border: 2px solid #38bdf8; color: white; font-weight: 700; font-size: 18px; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.5); white-space: nowrap;">
+        <div style="padding: 1.5rem 2rem; background: #0c4a6e; backdrop-filter: blur(10px); border-radius: 12px; border: 2px solid #075985; color: white; font-weight: 700; font-size: 18px; box-shadow: 0 4px 15px rgba(12, 74, 110, 0.5); white-space: nowrap;">
           📋 Project Manager (Goal)
         </div>
       </div>
@@ -1134,51 +1205,51 @@
           <h3>Technical Skills</h3>
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">Python</span>
-              <span class="skill-level">95%</span>
+              <span class="skill-name">🐍 Python</span>
+              <span class="skill-level">Advanced</span>
             </div>
             <div class="skill-bar">
-              <div class="skill-fill" style="width: 95%"></div>
+              <div class="skill-fill" style="width: 85%"></div>
             </div>
           </div>
 
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">SQL</span>
-              <span class="skill-level">90%</span>
+              <span class="skill-name">🗄️ SQL</span>
+              <span class="skill-level">Advanced</span>
             </div>
             <div class="skill-bar">
-              <div class="skill-fill" style="width: 90%"></div>
+              <div class="skill-fill" style="width: 85%"></div>
             </div>
           </div>
 
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">Tableau</span>
-              <span class="skill-level">90%</span>
+              <span class="skill-name">📊 Tableau</span>
+              <span class="skill-level">Advanced</span>
             </div>
             <div class="skill-bar">
-              <div class="skill-fill" style="width: 90%"></div>
+              <div class="skill-fill" style="width: 85%"></div>
             </div>
           </div>
 
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">Excel (Advanced)</span>
-              <span class="skill-level">95%</span>
+              <span class="skill-name">📑 MS Excel</span>
+              <span class="skill-level">Advanced</span>
             </div>
             <div class="skill-bar">
-              <div class="skill-fill" style="width: 95%"></div>
+              <div class="skill-fill" style="width: 85%"></div>
             </div>
           </div>
 
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">Machine Learning</span>
-              <span class="skill-level">80%</span>
+              <span class="skill-name">🤖 Machine Learning</span>
+              <span class="skill-level">Intermediate</span>
             </div>
             <div class="skill-bar">
-              <div class="skill-fill" style="width: 80%"></div>
+              <div class="skill-fill" style="width: 65%"></div>
             </div>
           </div>
         </div>
@@ -1187,38 +1258,18 @@
           <h3>Business Skills</h3>
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">Lean Six Sigma (DMAIC)</span>
+              <span class="skill-name">⚙️ Lean Six Sigma (DMAIC)</span>
               <span class="skill-level">Expert</span>
             </div>
             <div class="skill-bar">
-              <div class="skill-fill" style="width: 95%"></div>
-            </div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Statistical Analysis</span>
-              <span class="skill-level">90%</span>
-            </div>
-            <div class="skill-bar">
               <div class="skill-fill" style="width: 90%"></div>
             </div>
           </div>
 
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">Process Optimization</span>
-              <span class="skill-level">90%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 90%"></div>
-            </div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Stakeholder Management</span>
-              <span class="skill-level">85%</span>
+              <span class="skill-name">📈 Statistical Analysis</span>
+              <span class="skill-level">Advanced</span>
             </div>
             <div class="skill-bar">
               <div class="skill-fill" style="width: 85%"></div>
@@ -1227,11 +1278,31 @@
 
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">Project Coordination</span>
-              <span class="skill-level">85%</span>
+              <span class="skill-name">🔄 Process Optimization</span>
+              <span class="skill-level">Advanced</span>
             </div>
             <div class="skill-bar">
               <div class="skill-fill" style="width: 85%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">👥 Stakeholder Management</span>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 75%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">📋 Project Coordination</span>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 75%"></div>
             </div>
           </div>
         </div>
@@ -1259,12 +1330,12 @@
         <div style="margin-top: 2rem; padding: 2rem; background: rgba(255, 255, 255, 0.15); border-radius: 12px; border: 2px solid rgba(255, 255, 255, 0.2);">
           <h4 style="font-size: 20px; margin-bottom: 1rem; color: white;">🎯 Building PM Competencies</h4>
           <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center;">
-            <span style="padding: 8px 16px; background: #0ea5e9; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Scope Management</span>
-            <span style="padding: 8px 16px; background: #0ea5e9; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Timeline Planning</span>
-            <span style="padding: 8px 16px; background: #0ea5e9; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Budget Tracking</span>
-            <span style="padding: 8px 16px; background: #0ea5e9; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Risk Assessment</span>
-            <span style="padding: 8px 16px; background: #0ea5e9; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Team Leadership</span>
-            <span style="padding: 8px 16px; background: #0ea5e9; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Stakeholder Engagement</span>
+            <span style="padding: 8px 16px; background: #0c4a6e; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Scope Management</span>
+            <span style="padding: 8px 16px; background: #0c4a6e; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Timeline Planning</span>
+            <span style="padding: 8px 16px; background: #0c4a6e; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Budget Tracking</span>
+            <span style="padding: 8px 16px; background: #0c4a6e; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Risk Assessment</span>
+            <span style="padding: 8px 16px; background: #0c4a6e; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Team Leadership</span>
+            <span style="padding: 8px 16px; background: #0c4a6e; border-radius: 20px; font-size: 14px; font-weight: 600; color: white;">Stakeholder Engagement</span>
           </div>
         </div>
       </div>
@@ -1374,7 +1445,7 @@
       </div>
 
       <div class="contact-form">
-        <form id="contactForm" action="https://formspree.io/f/mpwvlpyv" method="POST">
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="form-group">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" required placeholder="John Doe">
